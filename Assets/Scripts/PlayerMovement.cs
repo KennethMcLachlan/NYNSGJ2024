@@ -13,16 +13,21 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField]
     private float gravity = 1.0f;
-    
-    
+    [SerializeField]
+    public bool isDash;
+
+    private float dashTime;
+    public float defaultSpeed;
+    public float defaultTime;
     private bool canDoubleJump;
-    
-   // Rigidbody myRigidBody;
+    private float horizontalInput;
+    public float dashSpeed;
+    Rigidbody myRigidBody;
     private CharacterController _controller;
 
     void Start()
     {
-        //myRigidBody = GetComponent<Rigidbody>();
+        myRigidBody = GetComponent<Rigidbody>();
         _controller = GetComponent<CharacterController>();
     }
 
@@ -30,11 +35,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {      
         CalculateMovement();
+        DashMovement();
     }
 
     private void CalculateMovement()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+       horizontalInput = Input.GetAxis("Horizontal");
         Vector3 direction = new Vector3(horizontalInput, 0, 0);
         Vector3 velocity = direction * speed;
 
@@ -68,7 +74,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void DashMovement()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isDash = true;
+        }
+
+        if (dashTime <= 0)
+        {
+            //defaultSpeed = speed;
+            if (isDash)
+                dashTime = defaultTime;
+        }
+        else
+        {
+            dashTime -= Time.deltaTime;
+            defaultSpeed = dashSpeed;
+        }
+        isDash = false;
     }
    
 }
