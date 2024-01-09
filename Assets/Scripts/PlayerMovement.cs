@@ -66,5 +66,9 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(velocity * Time.deltaTime);
     }
 
+    private void DashMovement()
+    {
+
+    }
    
 }
