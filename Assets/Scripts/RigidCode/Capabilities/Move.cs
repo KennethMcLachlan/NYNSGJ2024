@@ -11,7 +11,7 @@ public class Move : MonoBehaviour
     [SerializeField, Range(0f, 100f)] private float maxAcceleration = 35f;
     [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 20f;
 
-    private Vector3 direction;
+    public Vector3 direction;
     private Vector3 desiredVelocity;
     private Vector3 velocity;
     private Rigidbody body;
@@ -20,7 +20,10 @@ public class Move : MonoBehaviour
     private float maxSpeedChange;
     private float acceleration;
     private bool onGround;
-    // Start is called before the first frame update
+
+   
+
+
     void Awake()
     {
         body= GetComponent<Rigidbody>();
@@ -52,4 +55,5 @@ public class Move : MonoBehaviour
 
         }
     }
+    
 }

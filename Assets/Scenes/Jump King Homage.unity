@@ -4922,6 +4922,7 @@ MonoBehaviour:
   maxspeed: 4
   maxAcceleration: 60
   maxAirAcceleration: 50
+  direction: {x: 0, y: 0, z: 0}
 --- !u!1001 &1291722904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6963,7 +6964,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!1 &3982188597910771956
 GameObject:
@@ -7111,7 +7112,7 @@ Transform:
   m_GameObject: {fileID: 5034664499133627967}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -2.2, z: 0}
+  m_LocalPosition: {x: 7.1, y: 45.5, z: 0}
   m_LocalScale: {x: 2.1314, y: 2.1314, z: 2.1314}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7219,6 +7220,7 @@ MonoBehaviour:
   upwardMovementMultiplier: 1.5
   gravityScale: 1
   globalGravity: -9.81
+  tr: {fileID: 2297870647555785516}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
