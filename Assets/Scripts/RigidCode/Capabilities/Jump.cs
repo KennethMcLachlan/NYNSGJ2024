@@ -60,9 +60,9 @@ public class Jump : MonoBehaviour
         if (onGround || jumpPhase< maxAirJumps ) 
         {
             jumpPhase += 1;
-            Debug.Log("this is the globalGrav :" + gameObject.GetComponent<CustomGravity>().globalGravity);
+            ///Debug.Log("this is the globalGrav :" + gameObject.GetComponent<CustomGravity>().globalGravity);
             float jumpSpeed = Mathf.Sqrt(-2f * gameObject.GetComponent<CustomGravity>().globalGravity * jumpheight);
-            Debug.Log("this is the jumpSpeed before jump action's if loop: " + jumpSpeed);
+            ///Debug.Log("this is the jumpSpeed before jump action's if loop: " + jumpSpeed);
             if (velocity.y >0f)
             {
                 Debug.Log("this is the jumpSpeed in jump action's if loop: "+ Mathf.Max(jumpSpeed - velocity.y, 0f));

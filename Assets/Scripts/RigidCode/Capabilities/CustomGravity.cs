@@ -15,7 +15,7 @@ public class CustomGravity : MonoBehaviour
 
     private bool canDash = true;
     private bool isDashing = false;
-    private float dashingPower = 24.0f;
+    [SerializeField, Range(0f, 40f)] private float dashingPower = 30.0f;
     private float dashingTime = 0.2f;
     private Vector3 gravity;
     private float dashingCooldown = 1f;
@@ -66,7 +66,6 @@ public class CustomGravity : MonoBehaviour
     }
     private IEnumerator Dash()
     {
-        Debug.Log("we're in the coroutine");
         canDash = false;
         isDashing = true;
         Vector3 currentGravity = gravity;

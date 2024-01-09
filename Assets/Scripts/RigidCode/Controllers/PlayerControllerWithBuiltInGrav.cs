@@ -8,7 +8,6 @@ public class PlayerControllerWithBuiltInGrav : InputController
 {
     public override bool RetrieveJumpInput()
     {
-        Debug.Log("your Jumping: " + Input.GetButtonDown("Jump"));
         return Input.GetButtonDown("Jump");
     }
 

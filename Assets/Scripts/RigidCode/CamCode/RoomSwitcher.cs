@@ -9,7 +9,7 @@ public class RoomSwitcher : MonoBehaviour
     {
         if(other.tag=="Player" && !other.isTrigger)
         {
-            Debug.Log("I am turning on the camera " + virtualCam.name);
+            //Debug.Log("I am turning on the camera " + virtualCam.name);
             virtualCam.SetActive(true);
         }
     }
@@ -17,7 +17,7 @@ public class RoomSwitcher : MonoBehaviour
     {
         if (other.tag == "Player" && !other.isTrigger)
         {
-            Debug.Log("I am leaving the camera ");
+            //Debug.Log("I am leaving the camera ");
             virtualCam.SetActive(false);
         }
     }
