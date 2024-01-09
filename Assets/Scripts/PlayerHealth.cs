@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     private UIManager _uiManager;
+    private ScreenShake _screenShake;
 
-    [SerializeField] private int _maxHealth;
-    private int _currentHealth;
+    [SerializeField] private int _currentHealth;
+    [SerializeField] private int _maxHealth = 50;
 
     //Temporary value for damage
     private int _damage = 5;
@@ -25,6 +26,14 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("UIManager is NULL!");
         }
+
+        //_screenShake = GameObject.Find("2D Camera").GetComponent<ScreenShake>();
+        //if (_screenShake == null)
+        //{
+        //    Debug.Log("ScreenShake is NULL");
+        //}
+
+        _currentHealth = _maxHealth;
     }
 
     private void Update()
@@ -35,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
     public void Damage()
     {
         // Tells the Healthbar that the player has been damaged
+        //_screenShake.StartShake(); Couldn't get it to work with Cinemachine
         _currentHealth -= _damage;
         _uiManager.DamageHealth(_currentHealth);
     }
@@ -62,5 +72,4 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    
 }

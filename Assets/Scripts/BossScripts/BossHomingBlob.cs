@@ -9,11 +9,23 @@ public class BossHomingBlob : MonoBehaviour
     [SerializeField] private float _speed = 5f;
 
     public PlayerHealth player;
+    public PlayerMovement playerMovement;
 
 
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        if (player == null)
+        {
+            Debug.Log("PlayerHealth is null");
+        }
+
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        if (playerMovement == null)
+        {
+            Debug.Log("PlayerMovement is null");
+        }
+
         _target = player.transform;
     }
 
@@ -37,7 +49,11 @@ public class BossHomingBlob : MonoBehaviour
         {
             if (player != null)
             {
+                Debug.Log("Blob Collider is working");
                 player.Damage();
+                playerMovement.Sludged();
+                Destroy(gameObject);
+
             }
         }
     }
