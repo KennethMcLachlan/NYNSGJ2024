@@ -7,18 +7,18 @@ public class RoomSwitcher : MonoBehaviour
     public GameObject virtualCam;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Player")
+        if(other.tag=="Player" && !other.isTrigger)
         {
             Debug.Log("I am turning on the camera " + virtualCam.name);
-            virtualCam.SetActive(false);
+            virtualCam.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !other.isTrigger)
         {
             Debug.Log("I am leaving the camera ");
-            virtualCam.SetActive(true);
+            virtualCam.SetActive(false);
         }
     }
 

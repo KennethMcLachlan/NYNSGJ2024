@@ -43,4 +43,13 @@ public class Move : MonoBehaviour
 
         body.velocity = velocity;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "JumpAdd")
+        {
+            other.gameObject.SetActive(false);
+            this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
+
+        }
+    }
 }
