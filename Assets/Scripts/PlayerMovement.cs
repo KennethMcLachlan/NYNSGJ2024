@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
+    [SerializeField] private InputController input = null;
+    [SerializeField, Range(0f, 100f)] private float maxspeed = 10f;
+    [SerializeField, Range(0f, 100f)] private float maxAcceleration = 35f;
+    [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 20f;
+    
+
     [SerializeField]
     private float speed = 5.0f;
 
@@ -14,14 +21,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float gravity = 1.0f;
     [SerializeField]
-    public bool isDash;
+   // public bool isDash;
 
     private float dashTime;
     public float defaultSpeed;
     public float defaultTime;
     private bool canDoubleJump;
     private float horizontalInput;
-    public float dashSpeed;
+    //public float dashSpeed;
     Rigidbody myRigidBody;
     private CharacterController _controller;
 
@@ -35,10 +42,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {      
         CalculateMovement();
-        DashMovement();
+       // DashMovement();
     }
 
-    private void CalculateMovement()
+    void FixedUpdate()
+    {
+    }
+
+        private void CalculateMovement()
     {
        horizontalInput = Input.GetAxis("Horizontal");
         Vector3 direction = new Vector3(horizontalInput, 0, 0);
@@ -72,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(velocity * Time.deltaTime);
     }
 
-    private void DashMovement()
+    /*private void DashMovement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -94,5 +105,5 @@ public class PlayerMovement : MonoBehaviour
         }
         isDash = false;
     }
-   
+   */
 }
