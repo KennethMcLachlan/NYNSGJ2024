@@ -32,6 +32,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody myRigidBody;
     private CharacterController _controller;
 
+    //Speed multiplier to reduce the speed of the player when they are sludged
+    private float _speedMultiplier = 2f;
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
@@ -105,5 +108,29 @@ public class PlayerMovement : MonoBehaviour
         }
         isDash = false;
     }
+<<<<<<< HEAD
    */
+
+
+    //Reduces speed of the player when they get sludged by the homing blob
+    public void Sludged()
+    {
+        //Add SFX here
+        speed /= _speedMultiplier;
+        //Add a color change here
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        Debug.Log("Player has been sludged");
+        StartCoroutine(SludgeDuration());
+
+    }
+
+    IEnumerator SludgeDuration()
+    {
+        yield return new WaitForSeconds(5.0f);
+        speed *= _speedMultiplier;
+        //Return player color here
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+    }
+
+
 }
