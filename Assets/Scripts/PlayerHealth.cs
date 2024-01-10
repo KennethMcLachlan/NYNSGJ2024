@@ -6,8 +6,8 @@ public class PlayerHealth : MonoBehaviour
 {
     private UIManager _uiManager;
 
-    [SerializeField] private int _maxHealth;
-    private int _currentHealth;
+    [SerializeField] private int _maxHealth = 50;
+    [SerializeField] private int _currentHealth;
 
     //Temporary value for damage
     private int _damage = 5;
@@ -25,6 +25,8 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("UIManager is NULL!");
         }
+
+        _currentHealth = _maxHealth;
     }
 
     private void Update()
