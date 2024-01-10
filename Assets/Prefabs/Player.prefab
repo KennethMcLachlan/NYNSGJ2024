@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4600411456996081278}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,13 +174,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  speed: 5
+  maxspeed: 10
+  maxAcceleration: 35
+  maxAirAcceleration: 20
+  speed: 20
   jumpHeight: 30
   gravity: 1
-  isDash: 0
+  dashTime: 0
   defaultSpeed: 0
   defaultTime: 0
-  dashSpeed: 0
 --- !u!143 &4600411456996081278
 CharacterController:
   m_ObjectHideFlags: 0

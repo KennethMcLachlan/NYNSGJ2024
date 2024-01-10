@@ -7,6 +7,7 @@ TagManager:
   - Slips
   - Breakable
   - JumpAdd
+  - Enemy
   layers:
   - Default
   - TransparentFX

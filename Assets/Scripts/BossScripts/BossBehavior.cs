@@ -7,11 +7,19 @@ public class BossBehavior : MonoBehaviour
     [SerializeField] private GameObject _projectile;
     [SerializeField] private GameObject _blob;
 
+    [SerializeField] private GameObject _waveAttack01;
+    [SerializeField] private GameObject _waveAttack02;
+
     //SpawnPoints for Porjectiles
     [SerializeField] private GameObject _projectileSpawn01;
     [SerializeField] private GameObject _projectileSpawn02;
     [SerializeField] private GameObject _projectileSpawn03;
     [SerializeField] private GameObject _projectileSpawn04;
+
+    //Spawn Points for Wave Attack
+    [SerializeField] private GameObject _waveSpawn01;
+    [SerializeField] private GameObject _waveSpawn02;
+
 
     //SpawnPoint for Blob
     [SerializeField] private GameObject _blobSpawnPoint;
@@ -57,6 +65,7 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator BossFightRoutine()
     {
+        
         while (_bossIsActive == true)
         {
 
@@ -74,6 +83,24 @@ public class BossBehavior : MonoBehaviour
 
             yield return new WaitForSeconds(3f);
             Instantiate(_blob, _blobSpawnPoint.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(1f);
+            Instantiate(_projectile, _projectileSpawn01.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(1f);
+            Instantiate(_projectile, _projectileSpawn02.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(1f);
+            Instantiate(_projectile, _projectileSpawn03.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(1f);
+            Instantiate(_projectile, _projectileSpawn04.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(3f);
+            Instantiate(_waveAttack01, _waveSpawn01.transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(_waveAttack02, _waveSpawn02.transform.position, Quaternion.identity);
         }
     }
 

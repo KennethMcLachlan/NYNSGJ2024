@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     private UIManager _uiManager;
 
-    [SerializeField] private int _maxHealth = 50;
+    [SerializeField] private int _maxHealth = 100;
     [SerializeField] private int _currentHealth;
 
     //Temporary value for damage
