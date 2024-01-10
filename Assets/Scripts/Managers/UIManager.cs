@@ -7,12 +7,21 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    private Slider _healthBar;
+    public BossBehavior bossBehavior;
+
+    [SerializeField] private Slider _healthBar;
+    [SerializeField] private Slider _bossHealth;
 
     [SerializeField] private TMP_Text _score;
 
     private void Start()
     {
+        bossBehavior = GameObject.Find("BossPrototype").GetComponent<BossBehavior>();
+        if (bossBehavior == null)
+        {
+            Debug.Log("Boss Behavior Script is NULL");
+        }
+
         _score.text = "Score: ";
     }
     public void DamageHealth(int health)
@@ -34,4 +43,18 @@ public class UIManager : MonoBehaviour
     {
         _score.text = "Score: " + score.ToString();
     }
+
+    public void UpdateBossHealth(int bossHealth)
+    {
+        _bossHealth.value = bossHealth;
+
+        if (bossHealth <= 0)
+        {
+            //Boss Dies
+            bossBehavior.BossHasDied();
+        }
+
+    }
+            
+        
 }
