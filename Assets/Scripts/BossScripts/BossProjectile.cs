@@ -15,6 +15,10 @@ public class BossProjectile : MonoBehaviour
             Debug.Log("Player is NULL");
         }
 
+        if (gameObject != null)
+        {
+            Invoke("DestroyProjectile", 4.5f);
+        }
     }
 
     void Update()
@@ -37,5 +41,10 @@ public class BossProjectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void DestroyProjectile()
+    {
+        Destroy(gameObject);
     }
 }

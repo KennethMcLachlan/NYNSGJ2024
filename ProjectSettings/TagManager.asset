@@ -8,6 +8,7 @@ TagManager:
   - Breakable
   - JumpAdd
   - Enemy
+  - JumpingEnemy
   layers:
   - Default
   - TransparentFX

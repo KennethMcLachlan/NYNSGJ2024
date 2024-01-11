@@ -101,7 +101,7 @@ public class EnemyBehavior : MonoBehaviour
         if (gameObject != null && player != null)
         {
             Vector3 temp = transform.position;
-            temp.y = 1;
+            temp.y = 1.36f;
             transform.position = temp;
 
             Vector3 displacement = _target.position - transform.position;

@@ -52,15 +52,15 @@ public class PlayerMovement : MonoBehaviour
     {
     }
 
-        private void CalculateMovement()
+    private void CalculateMovement()
     {
-       horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         Vector3 direction = new Vector3(horizontalInput, 0, 0);
         Vector3 velocity = direction * speed;
 
-        if(_controller.isGrounded == true)
+        if (_controller.isGrounded == true)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 yVelocity = jumpHeight;
                 canDoubleJump = true;

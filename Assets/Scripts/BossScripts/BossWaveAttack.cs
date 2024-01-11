@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossWaveAttack : MonoBehaviour
 {
     [SerializeField] private float _speed = 10;
+    
 
     public PlayerHealth player;
     void Start()
@@ -15,6 +16,10 @@ public class BossWaveAttack : MonoBehaviour
             Debug.Log("Player is NULL");
         }
 
+        if (gameObject != null)
+        {
+            Invoke("DestroyWave", 4f);
+        }
     }
 
     void Update()
@@ -37,5 +42,10 @@ public class BossWaveAttack : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    private void DestroyWave()
+    {
+        Destroy(gameObject);
     }
 }
