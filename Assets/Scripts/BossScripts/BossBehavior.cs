@@ -20,7 +20,6 @@ public class BossBehavior : MonoBehaviour
     [SerializeField] private GameObject _waveSpawn01;
     [SerializeField] private GameObject _waveSpawn02;
 
-
     //SpawnPoint for Blob
     [SerializeField] private GameObject _blobSpawnPoint;
 
@@ -30,6 +29,11 @@ public class BossBehavior : MonoBehaviour
 
     //Boss Health
     [SerializeField] private int _health = 100;
+
+    //Audio
+    [SerializeField] private AudioSource _waveAttack;
+    [SerializeField] private AudioSource _projectileAttackSFX;
+    [SerializeField] private AudioSource _blobSFX;
 
     public UIManager uiManager;
 
@@ -43,6 +47,10 @@ public class BossBehavior : MonoBehaviour
         }
         //Temporary tru bool
         _bossIsActive = true;
+
+        _waveAttack = GameObject.Find("BossWaveAttackSFX").GetComponent<AudioSource>();
+        _projectileAttackSFX = GameObject.Find("BossProjectileSFX").GetComponent<AudioSource>();
+        _blobSFX = GameObject.Find("BossBlobSFX").GetComponent<AudioSource>();
 
         _movement = 0;
         StartCoroutine(BossFightRoutine());
@@ -71,36 +79,47 @@ public class BossBehavior : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn01.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn02.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn03.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn04.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(3f);
             Instantiate(_blob, _blobSpawnPoint.transform.position, Quaternion.identity);
+            _blobSFX.Play();
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn01.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn02.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn03.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(1f);
             Instantiate(_projectile, _projectileSpawn04.transform.position, Quaternion.identity);
+            _projectileAttackSFX.Play();
 
             yield return new WaitForSeconds(3f);
             Instantiate(_waveAttack01, _waveSpawn01.transform.position, Quaternion.identity);
+            _waveAttack.Play();
 
             yield return new WaitForSeconds(1.5f);
             Instantiate(_waveAttack02, _waveSpawn02.transform.position, Quaternion.identity);
+            _waveAttack.Play();
         }
     }
 

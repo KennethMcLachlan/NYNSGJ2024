@@ -5,6 +5,8 @@ using UnityEngine;
 public class HealthPowerUp : MonoBehaviour
 {
     public PlayerHealth player;
+
+    [SerializeField] private AudioSource _healSFX;
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerHealth>();
@@ -12,6 +14,8 @@ public class HealthPowerUp : MonoBehaviour
         {
             Debug.Log("Player is NULL");
         }
+
+        _healSFX = GameObject.Find("HealSFX").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,6 +24,7 @@ public class HealthPowerUp : MonoBehaviour
         {
             if (player != null)
             {
+                _healSFX.Play();
                 player.Heal();
                 Destroy(gameObject);
             }

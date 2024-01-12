@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossHomingBlob : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private AudioSource _blobSFX;
+    
     [SerializeField] private float _speed = 5f;
 
     public PlayerHealth player;
@@ -25,9 +25,6 @@ public class BossHomingBlob : MonoBehaviour
         {
             Debug.Log("PlayerMovement is null");
         }
-
-        _blobSFX = GetComponent<AudioSource>();
-        _blobSFX.Play();
 
         _target = player.transform;
     }
