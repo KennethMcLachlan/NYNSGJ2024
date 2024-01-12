@@ -21,8 +21,11 @@ public class Move : MonoBehaviour
     private float acceleration;
     private bool onGround;
 
-   
 
+    public GameObject startposition;
+    public GameObject barrierOne;
+    public GameObject barrierTwo;
+    public GameObject barrierThree;
 
     void Awake()
     {
@@ -52,6 +55,23 @@ public class Move : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
+            this.gameObject.transform.position= startposition.transform.position;
+            barrierOne.SetActive(true);
+            barrierThree.SetActive(false);
+
+        }
+        if(other.tag == "DashAdd")
+        {
+            other.gameObject.SetActive(false);
+            this.gameObject.GetComponent<CustomGravity>().canDash = true;
+            this.gameObject.transform.position = startposition.transform.position;
+            barrierTwo.SetActive(true);
+        }
+        if (other.tag == "JumpAddTwo")
+        {
+            other.gameObject.SetActive(false);
+            this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
+            this.gameObject.transform.position = startposition.transform.position;
 
         }
     }

@@ -9,6 +9,7 @@ TagManager:
   - JumpAdd
   - Enemy
   - JumpingEnemy
+  - JumpAddTwo
   layers:
   - Default
   - TransparentFX

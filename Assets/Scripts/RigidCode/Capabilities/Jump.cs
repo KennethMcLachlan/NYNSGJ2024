@@ -17,7 +17,7 @@ public class Jump : MonoBehaviour
     private Vector3 velocity;
     private CustomGravity customgrav;
 
-    private int jumpPhase;
+    public int jumpPhase;
     private float defaultGravityScale;
 
     private bool desiredJump;
@@ -57,15 +57,16 @@ public class Jump : MonoBehaviour
     }
     private void JumpAction()
     {
-        if (onGround || jumpPhase< maxAirJumps ) 
+        if (onGround || jumpPhase== maxAirJumps ) 
         {
+            //Debug.Log("just jumped here's jump phase: " + jumpPhase);
             jumpPhase += 1;
             ///Debug.Log("this is the globalGrav :" + gameObject.GetComponent<CustomGravity>().globalGravity);
             float jumpSpeed = Mathf.Sqrt(-2f * gameObject.GetComponent<CustomGravity>().globalGravity * jumpheight);
             ///Debug.Log("this is the jumpSpeed before jump action's if loop: " + jumpSpeed);
             if (velocity.y >0f)
             {
-                Debug.Log("this is the jumpSpeed in jump action's if loop: "+ Mathf.Max(jumpSpeed - velocity.y, 0f));
+                //Debug.Log("this is the jumpSpeed in jump action's if loop: "+ Mathf.Max(jumpSpeed - velocity.y, 0f));
                 jumpSpeed = Mathf.Max(jumpSpeed - velocity.y, 0f);
             }
             velocity.y += jumpSpeed;

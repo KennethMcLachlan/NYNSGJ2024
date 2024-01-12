@@ -13,7 +13,7 @@ public class CustomGravity : MonoBehaviour
 
     // Dash
 
-    private bool canDash = true;
+    public bool canDash = false;
     private bool isDashing = false;
     [SerializeField, Range(0f, 40f)] private float dashingPower = 30.0f;
     private float dashingTime = 0.2f;
