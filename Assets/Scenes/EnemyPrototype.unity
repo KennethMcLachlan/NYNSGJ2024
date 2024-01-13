@@ -406,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 0
+  _damageSFX: {fileID: 0}
 --- !u!1 &1419693523
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +521,10 @@ PrefabInstance:
     - target: {fileID: 2198909714769933284, guid: b46839b0e9cfaef41a94355e2a905850, type: 3}
       propertyPath: m_Name
       value: FlyingEnemy_Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198909714769933284, guid: b46839b0e9cfaef41a94355e2a905850, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2218717513880003679, guid: b46839b0e9cfaef41a94355e2a905850, type: 3}
       propertyPath: m_LocalPosition.x

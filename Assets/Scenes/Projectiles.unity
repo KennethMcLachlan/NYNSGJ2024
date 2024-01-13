@@ -414,6 +414,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &865946400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3511129545844261949, guid: 54449506c4e841249876963c0b2ac2de, type: 3}
+  m_PrefabInstance: {fileID: 540072535357601539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8ddbe52f585e5498190cb5ef18a755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2081770710
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +525,7 @@ Transform:
   m_GameObject: {fileID: 2081770710}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.48, y: -0.36, z: -2.47}
+  m_LocalPosition: {x: 23.34, y: -0.36, z: -2.47}
   m_LocalScale: {x: 0.62753826, y: 2.1316695, z: 1.4422662}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -532,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc028745e1dcdf040bc8a05f304e3816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 865946400}
   _speed: 3
   _spawnUP: {fileID: 0}
   _spawnLEFT: {fileID: 0}
@@ -552,6 +563,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3299836361450175340, guid: 54449506c4e841249876963c0b2ac2de, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 2081770715}
     - target: {fileID: 3299836361450175340, guid: 54449506c4e841249876963c0b2ac2de, type: 3}
       propertyPath: particleHitPoint
       value: 
