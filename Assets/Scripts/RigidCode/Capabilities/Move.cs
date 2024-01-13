@@ -57,7 +57,7 @@ public class Move : MonoBehaviour
             this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
             this.gameObject.transform.position= startposition.transform.position;
             barrierOne.SetActive(true);
-            barrierThree.SetActive(false);
+            
 
         }
         if(other.tag == "DashAdd")
@@ -72,6 +72,8 @@ public class Move : MonoBehaviour
             other.gameObject.SetActive(false);
             this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
             this.gameObject.transform.position = startposition.transform.position;
+            barrierThree.SetActive(true);
+            barrierOne.SetActive(true);
 
         }
     }
