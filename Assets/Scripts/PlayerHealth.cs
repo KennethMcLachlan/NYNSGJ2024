@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int _maxHealth = 100;
     [SerializeField] private int _currentHealth;
 
+    [SerializeField] private AudioSource _damageSFX;
+
     //Temporary value for damage
     private int _damage = 5;
 
@@ -26,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("UIManager is NULL!");
         }
 
+        _damageSFX = GetComponent<AudioSource>();
+
         _currentHealth = _maxHealth;
     }
 
@@ -38,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
     {
         // Tells the Healthbar that the player has been damaged
         _currentHealth -= _damage;
+        _damageSFX.Play();
         _uiManager.DamageHealth(_currentHealth);
     }
 
@@ -50,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
         {
             _currentHealth = _maxHealth;
         }
+
         _uiManager.RecoverHealth(_currentHealth);
 
     }

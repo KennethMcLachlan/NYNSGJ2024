@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - JumpingEnemy
   - JumpAddTwo
+  - Target
+  - target
   layers:
   - Default
   - TransparentFX

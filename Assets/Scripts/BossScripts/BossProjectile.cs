@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossProjectile : MonoBehaviour
 {
     [SerializeField] private float _speed = 5;
+    [SerializeField] private AudioSource _projectileSFX;
 
     public PlayerHealth player;
     void Start()
@@ -19,6 +20,9 @@ public class BossProjectile : MonoBehaviour
         {
             Invoke("DestroyProjectile", 4.5f);
         }
+
+        _projectileSFX = GetComponent<AudioSource>();
+        _projectileSFX.Play();
     }
 
     void Update()

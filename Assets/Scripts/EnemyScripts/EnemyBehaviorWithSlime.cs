@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour
+public class EnemyBehaviorWithSlime : EnemyHit
 {
     public PlayerMovement player;
     private Transform _target;
-    private int _damage = 100;
     [SerializeField] private float _speed = 3f;
 
     //Projectile Spawn Points
@@ -25,6 +24,8 @@ public class EnemyBehavior : MonoBehaviour
     private bool _enemyIsAlive = true;
     private bool _playerInProximity;
 
+    private Vector3 currentTarget;
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerMovement>();
@@ -38,7 +39,7 @@ public class EnemyBehavior : MonoBehaviour
 
         StartCoroutine(ProjectileRoutine());
     }
-    void Update()
+    void FixedUpdate()
     {
         CalculateMovement();
     }
@@ -59,7 +60,7 @@ public class EnemyBehavior : MonoBehaviour
         if (transform.position.x <= -15f)
         {
             _movement = 1;
-            
+
         }
 
         if (transform.position.x >= 15)
@@ -89,7 +90,7 @@ public class EnemyBehavior : MonoBehaviour
     private void MoveLeft()
     {
         transform.Translate(Vector3.left * _speed * Time.deltaTime);
-        
+
     }
 
     private void MoveRight()
@@ -108,32 +109,35 @@ public class EnemyBehavior : MonoBehaviour
             Vector3 displacement = _target.position - transform.position;
             displacement = displacement.normalized;
 
-            if (Vector2.Distance (_target.position, transform.position) > 1f)
+            if (Vector2.Distance(_target.position, transform.position) > 1f)
             {
                 transform.position += (displacement * _speed * Time.deltaTime);
             }
         }
     }
 
-    public void PlayerInProximity()
+    public override void Attack()
     {
-        _playerInProximity = true;
-        _speed += 1f;
-        _movement = 2;
-        Debug.Log("Player In Proximity");
+        base.Attack();
     }
 
-    public void PlayerOutOfProximity()
-    {
-        _playerInProximity = false;
-        _speed -= 1f;
-        _movement = Random.Range(0, 1);
-        Debug.Log("Player Left Proximity");
-    }
 
-    public void Damage()
+    
+    public override void Update()
     {
-        Destroy(gameObject);
+        if (currentTarget == _pointA.position)
+        {
+            Vector3 facing = transform.localEulerAngles;
+            facing.y = 0f;
+            transform.localEulerAngles = facing;
+        }
+        else if (currentTarget == _pointB.position)
+        {
+            Vector3 facing = transform.localEulerAngles;
+            facing.y = 180f;
+            transform.localEulerAngles = facing;
+        }
+        return;
     }
     
 }
