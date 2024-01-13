@@ -6,6 +6,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     public PlayerMovement player;
     private Transform _target;
+    private int _damage = 100;
     [SerializeField] private float _speed = 3f;
 
     //Projectile Spawn Points
@@ -128,6 +129,11 @@ public class EnemyBehavior : MonoBehaviour
         _speed -= 1f;
         _movement = Random.Range(0, 1);
         Debug.Log("Player Left Proximity");
+    }
+
+    public void Damage()
+    {
+        Destroy(gameObject);
     }
     
 }

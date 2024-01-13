@@ -8,6 +8,8 @@ public class PlayerProjectiles : MonoBehaviour
 
     public GameObject particleHitPoint;
 
+    public EnemyBehavior enemy;
+
     /*
     public void Spell ()
     {
@@ -33,6 +35,16 @@ public class PlayerProjectiles : MonoBehaviour
     }
 
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+
+        
+    }
+
     public void magicShoot()
     {
         Vector3 rayOrigin = transform.position;
@@ -41,7 +53,7 @@ public class PlayerProjectiles : MonoBehaviour
 
         if (Physics.Raycast (rayOrigin, transform.forward, out hit, range))
         {
-            if (hit.collider.tag == "target")
+            if (hit.collider.tag == "Enemy")
             {
                 Instantiate(particleHitPoint, hit.point, Quaternion.identity);
                 Destroy(hit.collider.gameObject);
