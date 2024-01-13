@@ -9,7 +9,7 @@ public class BossHomingBlob : MonoBehaviour
     [SerializeField] private float _speed = 5f;
 
     public PlayerHealth player;
-    public PlayerMovement playerMovement;
+    public Move playerMovement;
 
 
     private void Start()
@@ -20,7 +20,7 @@ public class BossHomingBlob : MonoBehaviour
             Debug.Log("PlayerHealth is null");
         }
 
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerMovement = GameObject.Find("Player").GetComponent<Move>();
         if (playerMovement == null)
         {
             Debug.Log("PlayerMovement is null");

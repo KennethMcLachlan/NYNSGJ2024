@@ -28,7 +28,11 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("UIManager is NULL!");
         }
 
-        _damageSFX = GetComponent<AudioSource>();
+        _damageSFX = GameObject.Find("PlayerDamageSFX").GetComponent<AudioSource>();
+        if (_damageSFX == null)
+        {
+            Debug.Log("Damage SFX is NULL");
+        }
 
         _currentHealth = _maxHealth;
     }

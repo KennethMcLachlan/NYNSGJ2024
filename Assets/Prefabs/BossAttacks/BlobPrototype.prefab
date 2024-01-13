@@ -225,8 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393a3e19bf036d64ebb6a8edec9590f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _blobSFX: {fileID: 0}
+  _target: {fileID: 2829378405285736558, guid: ec9abe052c18275499b11df2b403d3ca, type: 3}
   _speed: 5
   player: {fileID: 0}
   playerMovement: {fileID: 0}

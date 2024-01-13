@@ -77,5 +77,24 @@ public class Move : MonoBehaviour
 
         }
     }
-    
+
+    public void Sludged()
+    {
+        //Add SFX here
+        maxspeed /= 2;
+        //Add a color change here
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
+        Debug.Log("Player has been sludged");
+        StartCoroutine(SludgeDuration());
+
+    }
+
+    IEnumerator SludgeDuration()
+    {
+        yield return new WaitForSeconds(5.0f);
+        maxspeed *= 2;
+        //Return player color here
+        gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+    }
+
 }

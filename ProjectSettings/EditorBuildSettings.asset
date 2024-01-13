@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SOOTAGA.unity
     guid: a910bb4988562014cbc6eb3afff87306
+  - enabled: 1
+    path: Assets/Scenes/Jump King Homage.unity
+    guid: c742556225f55fb488b7b538c22be376
   m_configObjects: {}
