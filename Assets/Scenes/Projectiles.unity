@@ -561,7 +561,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 594951105533547925, guid: 54449506c4e841249876963c0b2ac2de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 3299836361450175340, guid: 54449506c4e841249876963c0b2ac2de, type: 3}
       propertyPath: enemy

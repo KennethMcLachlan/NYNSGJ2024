@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerProjectiles : MonoBehaviour
 {
+    [SerializeField] private GameObject _projectile;
+
     float range = 50f;
 
     public GameObject particleHitPoint;
@@ -25,12 +27,14 @@ public class PlayerProjectiles : MonoBehaviour
         {
             magicShoot();
             Debug.Log("click shot");
+            enemy.Damage();
         }
 
         if (Input.GetButtonDown ("Fire2"))
         {
             magicShoot();
             Debug.Log("spell shot");
+            enemy.Damage();
         }
     }
 
