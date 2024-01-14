@@ -11,7 +11,7 @@ public class AttackScript : MonoBehaviour
 
     public PlayerMovement player;
 
-    private bool canHit;
+    public bool canHit;
 
     private void OnEnable()
     {
