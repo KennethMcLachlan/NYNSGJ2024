@@ -25,7 +25,7 @@ public class HealthPowerUp : MonoBehaviour
             if (player != null)
             {
                 _healSFX.Play();
-                player.Heal();
+                //player.Heal();
                 Destroy(gameObject);
             }
         }

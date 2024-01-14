@@ -9,7 +9,7 @@ public class TitleManager : MonoBehaviour
     [SerializeField] private GameObject _settingsPage;
     public void LoadGame()
     {
-        SceneManager.LoadScene("Jump King Homage");
+        SceneManager.LoadScene("Intro Scene");
     }
 
     public void SettingsPage()

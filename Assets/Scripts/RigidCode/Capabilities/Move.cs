@@ -23,10 +23,23 @@ public class Move : MonoBehaviour
 
 
     public GameObject startposition;
+    public GameObject bossPosition;
     public GameObject barrierOne;
     public GameObject barrierTwo;
     public GameObject barrierThree;
+    public GameObject barrierFour;
+    public GameObject bossBarrier;
+    public GameObject barrierFive;
 
+    private bool maskOne;
+    private bool maskTwo;
+
+    private void Start()
+    {
+        maskTwo = false;
+        maskOne = false;
+        this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
+    }
     void Awake()
     {
         body= GetComponent<Rigidbody>();
@@ -57,15 +70,18 @@ public class Move : MonoBehaviour
             this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
             this.gameObject.transform.position= startposition.transform.position;
             barrierOne.SetActive(true);
-            
+            barrierThree.SetActive(false);
+            maskOne = true;
+
 
         }
-        if(other.tag == "DashAdd")
+        if (other.tag == "DashAdd")
         {
             other.gameObject.SetActive(false);
             this.gameObject.GetComponent<CustomGravity>().canDash = true;
             this.gameObject.transform.position = startposition.transform.position;
             barrierTwo.SetActive(true);
+            maskTwo = true;
         }
         if (other.tag == "JumpAddTwo")
         {
@@ -73,8 +89,31 @@ public class Move : MonoBehaviour
             this.gameObject.GetComponent<Jump>().maxAirJumps = 1;
             this.gameObject.transform.position = startposition.transform.position;
             barrierThree.SetActive(true);
-            barrierOne.SetActive(true);
 
+        }
+        if(other.tag == "TutorialBlock")
+        {
+            this.gameObject.transform.position = startposition.transform.position;
+            this.gameObject.GetComponent<Jump>().maxAirJumps = 0;
+
+
+
+        }
+        if (other.tag == "FiringLava")
+        {
+            this.gameObject.GetComponent<PlayerHealth>().DamageSpikes();
+        }
+        if (other.tag == "Damageing")
+        {
+            this.gameObject.GetComponent<PlayerHealth>().Damage();
+        }
+        if (maskTwo&&maskOne)
+        {
+            barrierFour.SetActive(false);
+            bossBarrier.SetActive(true);
+            this.gameObject.transform.position = bossPosition.transform.position;
+            maskTwo = false;
+            maskOne=false;
         }
     }
 
@@ -84,7 +123,7 @@ public class Move : MonoBehaviour
         maxspeed /= 2;
         //Add a color change here
         gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
-        Debug.Log("Player has been sludged");
+        //Debug.Log("Player has been sludged");
         StartCoroutine(SludgeDuration());
 
     }

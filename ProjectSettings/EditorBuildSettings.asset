@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/SOOTAGA.unity
     guid: a910bb4988562014cbc6eb3afff87306
   - enabled: 1
-    path: Assets/Scenes/Jump King Homage.unity
+    path: Assets/Scenes/Intro Scene.unity
+    guid: ce337a66d55e38d48956fca2a7cd61f9
+  - enabled: 1
+    path: Assets/Scenes/FinalGame.unity
     guid: c742556225f55fb488b7b538c22be376
+  - enabled: 1
+    path: Assets/Scenes/Outro Scene.unity
+    guid: 099ec8539859c9d4d9f2c1740f730a7d
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 319622fa46c329f4992dc767ebe8b55e
   m_configObjects: {}

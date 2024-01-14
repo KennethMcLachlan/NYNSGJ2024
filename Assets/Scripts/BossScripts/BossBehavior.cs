@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossBehavior : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class BossBehavior : MonoBehaviour
     [SerializeField] private float _battleSpeed = 3;
 
     //Boss Health
-    [SerializeField] private int _health = 100;
+    [SerializeField] private int _health = 150;
 
     //Audio
     [SerializeField] private AudioSource _waveAttack;
@@ -63,11 +65,11 @@ public class BossBehavior : MonoBehaviour
         {
             CasualMovement();
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
+        if (_health==0)
         {
-            Damage();
+            BossHasDied();
         }
+
 
     }
 
@@ -123,6 +125,15 @@ public class BossBehavior : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log("entering damage");
+        if (other.tag=="Projectile")
+        {
+            Damage();
+        }
+    }
+    
     private void CasualMovement()
     {
         if (transform.position.x <= 4.5f)
@@ -163,7 +174,7 @@ public class BossBehavior : MonoBehaviour
 
     public void Damage()
     {
-        _health -= 5;
+        _health -= 6;
         uiManager.UpdateBossHealth(_health);
     }
 
@@ -173,5 +184,8 @@ public class BossBehavior : MonoBehaviour
         StopCoroutine(BossFightRoutine());
         Debug.Log("Boss is Dead");
         Destroy(gameObject);
+        
+        SceneManager.LoadScene("Outro Scene", LoadSceneMode.Single);
+        
     }
 }

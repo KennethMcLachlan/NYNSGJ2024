@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,13 +14,14 @@ public class PlayerHealth : MonoBehaviour
 
     //Temporary value for damage
     private int _damage = 5;
+    private int _spikeDamage = 7;
 
     //Add health when the Player picks up a healing potion
     private int _heal = 15;
 
     //Add score when the player defeats an enemy
     private int _score;
-
+    
     void Start()
     {
         _uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
@@ -40,12 +42,24 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         AddScore();
+        if (_currentHealth <= 0)
+        {
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
+        Debug.Log("This is the health: " + _currentHealth);
     }
 
     public void Damage()
     {
         // Tells the Healthbar that the player has been damaged
         _currentHealth -= _damage;
+        _damageSFX.Play();
+        _uiManager.DamageHealth(_currentHealth);
+    }
+    public void DamageSpikes()
+    {
+        // Tells the Healthbar that the player has been damaged
+        _currentHealth -= _spikeDamage;
         _damageSFX.Play();
         _uiManager.DamageHealth(_currentHealth);
     }
@@ -60,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
             _currentHealth = _maxHealth;
         }
 
-        _uiManager.RecoverHealth(_currentHealth);
+        //_uiManager.RecoverHealth(_currentHealth);
 
     }
 

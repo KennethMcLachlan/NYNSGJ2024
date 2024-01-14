@@ -14,7 +14,7 @@ public class CustomGravity : MonoBehaviour
     // Dash
 
     public bool canDash = false;
-    private bool isDashing = false;
+    public bool isDashing = false;
     [SerializeField, Range(0f, 40f)] private float dashingPower = 30.0f;
     private float dashingTime = 0.2f;
     private Vector3 gravity;

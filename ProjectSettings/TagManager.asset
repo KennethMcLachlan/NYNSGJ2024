@@ -12,6 +12,11 @@ TagManager:
   - JumpAddTwo
   - Target
   - target
+  - DashAdd
+  - Damageing
+  - FiringLava
+  - TutorialBlock
+  - Projectile
   layers:
   - Default
   - TransparentFX

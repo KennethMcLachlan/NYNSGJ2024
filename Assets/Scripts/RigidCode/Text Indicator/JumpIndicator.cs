@@ -21,15 +21,15 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private IEnumerator JumpIndicator()
     {
-        Debug.Log("this is jump phase: "+ player.GetComponent<Jump>().jumpPhase);
-        Debug.Log("this is maxAirJumps: "+ player.GetComponent<Jump>().maxAirJumps);
+        //Debug.Log("this is jump phase: "+ player.GetComponent<Jump>().jumpPhase);
+        //Debug.Log("this is maxAirJumps: "+ player.GetComponent<Jump>().maxAirJumps);
         if (player.GetComponent<Jump>().jumpPhase != player.GetComponent<Jump>().maxAirJumps)
         {
             text.text = "Extra Jump Avaliable";
         }
         if ((player.GetComponent<Jump>().maxAirJumps +1) == (player.GetComponent<Jump>().jumpPhase))
         {
-            text.text = "Jump Disabled";
+            text.text = "No Extra Jump Avaliable";
         }
         yield return new WaitForSeconds(0.2f);
     }
